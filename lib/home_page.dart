@@ -47,21 +47,38 @@ appBar: AppBar(
                         children: [
                           Row(
                             children: [
-                              Column(
-                                children: [
-                                  Text('Features',style: TextStyle(color: Colors.black45,fontSize: 20,fontWeight: FontWeight.w800),),
-                                      Text('AC Room',),
-                                      Text('Loung To Rest',),
-                                      Text('Kitchen with fridge',),
-                                      Text('Adequate Parking',),
-                                      Text('Comfortable chair',),
-                                      Text('Fast Wifi',),
-                                      Text('Good Lighting',),
-                                      Text('Microwave',),
-                                ],
-                              ),
-                              Image.asset('assets/images/serviceslist.jpg',),
-                            ],
+                              ListView(
+                        children: <Widget>[
+                        ListTile(
+                        leading: Icon(Icons.map),
+                        title: Text('AC Room'),
+                      ),
+                      ListTile(
+                        title: Text('Loung To Rest'),
+                      ),
+                        ListTile(
+                          title: Text('Loung To Rest'),),
+                      ListTile(
+                        title: Text('Kitchen With Fridge'),
+                      ),
+                      ListTile(
+                        title: Text('Adequate Parking'),
+                      ),
+                      ListTile(
+                        title: Text('Comfortable Chair'),
+                      ),
+                      ListTile(
+                        title: Text('Fast WIFI'),
+                      ),
+                      ListTile(
+                        title: Text('Good Lighting'),
+                      ),
+                      ListTile(
+                        title: Text('Microwave'),
+                      ),
+    ],
+                              //Image.asset('assets/images/serviceslist.jpg',),
+                              ), ],
                           ),
                         ],
                       ),

@@ -43,6 +43,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.5"
+  design_tools:
+    dependency: "direct main"
+    description:
+      name: design_tools
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.0"
   dob_input_field:
     dependency: "direct dev"
     description:
@@ -165,4 +172,4 @@ packages:
     version: "2.1.2"
 sdks:
   dart: ">=2.18.6 <3.0.0"
-  flutter: ">=1.17.0"
+  flutter: ">=2.2.0"

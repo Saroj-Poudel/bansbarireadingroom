@@ -54,6 +54,27 @@ class _RegistrationState extends State<Registration> {
               padding: const EdgeInsets.only(
                   left: 15.0, right: 15.0, top: 15, bottom: 15),
               //padding: EdgeInsets.symmetric(horizontal: 15),
+              child: Row(
+                children: [
+                  Text('Gender'),
+                  SizedBox(width: 20,),
+                  DropdownButton<String>(
+                    items: <String>['Male', 'Female', 'Other'].map((String gender) {
+                      return DropdownMenuItem<String>(
+                        value: gender,
+                        child: Text(gender),
+                      );
+                    }).toList(),
+                    onChanged: (_) {},
+                  ),
+                ],
+              ),
+
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                  left: 15.0, right: 15.0, top: 15, bottom: 15),
+              //padding: EdgeInsets.symmetric(horizontal: 15),
               child: TextField(
                 obscureText: false,
                 decoration: InputDecoration(
@@ -141,6 +162,28 @@ class _RegistrationState extends State<Registration> {
               padding: const EdgeInsets.only(
                   left: 15.0, right: 15.0, top: 15, bottom: 15),
               //padding: EdgeInsets.symmetric(horizontal: 15),
+              child: Row(
+                children: [
+                  Text('Choose Package'),
+                  SizedBox(width: 20,),
+                  DropdownButton<String>(
+                    items: <String>['Daily-RS300', 'Weakly-Rs1800', 'Monthly-RS7500', 'Quarterly-Rs20000','yearly-RS65000'].map((String option) {
+                      return DropdownMenuItem<String>(
+                        value: option,
+                        child: Text(option),
+                      );
+                    }).toList(),
+                    onChanged: (_) {},
+                  ),
+                ],
+              ),
+
+
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                  left: 15.0, right: 15.0, top: 15, bottom: 15),
+              //padding: EdgeInsets.symmetric(horizontal: 15),
               child: TextField(
                 obscureText: false,
                 decoration: InputDecoration(
@@ -200,7 +243,6 @@ class _RegistrationState extends State<Registration> {
                   borderRadius: BorderRadius.circular(20)),
               child: TextButton(
                 onPressed: () {
-
                   Navigator.push(
                       context, MaterialPageRoute(builder: (_) => LoginDemo()));
                 },
