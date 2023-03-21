@@ -167,13 +167,13 @@ class _RegistrationState extends State<Registration> {
                   Text('Choose Package'),
                   SizedBox(width: 20,),
                   DropdownButton<String>(
-                    items: <String>['Daily-RS300', 'Weakly-Rs1800', 'Monthly-RS7500', 'Quarterly-Rs20000','yearly-RS65000'].map((String option) {
+                    items: <String>['Daily-RS200', 'Weakly-Rs1000', 'Monthly-RS3000', 'Quarterly-Rs8000','yearly-RS30000'].map((String option) {
                       return DropdownMenuItem<String>(
                         value: option,
                         child: Text(option),
                       );
                     }).toList(),
-                    onChanged: (_) {},
+                    onChanged: (option) {},
                   ),
                 ],
               ),

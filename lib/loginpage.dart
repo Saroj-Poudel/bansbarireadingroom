@@ -1,5 +1,3 @@
-
-
 import 'package:bansbari_reading_room/registrationpage.dart';
 import 'package:flutter/material.dart';
 import 'home_page.dart';
@@ -16,7 +14,10 @@ class _LoginDemoState extends State<LoginDemo> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Color(0xFFE75F2D),
-        title: Text("Bansbari Reading Room",style:TextStyle(fontSize: 20,color: Colors.white),),
+        title: Text(
+          "Bansbari Reading Room",
+          style: TextStyle(fontSize: 20, color: Colors.white),
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -48,7 +49,6 @@ class _LoginDemoState extends State<LoginDemo> {
                   left: 15.0, right: 15.0, top: 15, bottom: 0),
               //padding: EdgeInsets.symmetric(horizontal: 15),
               child: TextField(
-
                 obscureText: true,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
@@ -56,20 +56,15 @@ class _LoginDemoState extends State<LoginDemo> {
                     hintText: 'Enter secure password'),
               ),
             ),
-            TextButton(
-              onPressed: (){
-                //TODO FORGOT PASSWORD SCREEN GOES HERE
-              },
-              child: Text(
-                'Forgot Password',
-                style: TextStyle(color: Colors.blue, fontSize: 15),
-              ),
+            SizedBox(
+              height: 15,
             ),
             Container(
               height: 50,
               width: 250,
               decoration: BoxDecoration(
-                  color: Colors.redAccent, borderRadius: BorderRadius.circular(20)),
+                  color: Colors.redAccent,
+                  borderRadius: BorderRadius.circular(20)),
               child: TextButton(
                 onPressed: () {
                   Navigator.push(
@@ -81,15 +76,24 @@ class _LoginDemoState extends State<LoginDemo> {
                 ),
               ),
             ),
+            TextButton(
+              onPressed: () {
+                //TODO FORGOT PASSWORD SCREEN GOES HERE
+              },
+              child: Text(
+                'Forgot Password',
+                style: TextStyle(color: Colors.blue, fontSize: 15),
+              ),
+            ),
             SizedBox(
-              height: 130,
+              height: 100,
             ),
             Text('New User? '),
-       TextButton(
-          onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (_) => Registration()));
-          },
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => Registration()));
+              },
               child: Text(
                 'Create Account',
                 style: TextStyle(color: Colors.blue, fontSize: 15),
