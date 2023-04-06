@@ -1,4 +1,5 @@
 import 'package:bansbari_reading_room/registrationpage.dart';
+import 'package:bansbari_reading_room/showpage.dart';
 import 'package:flutter/material.dart';
 import 'home_page.dart';
 
@@ -68,7 +69,7 @@ class _LoginDemoState extends State<LoginDemo> {
               child: TextButton(
                 onPressed: () {
                   Navigator.push(
-                      context, MaterialPageRoute(builder: (_) => HomePage()));
+                      context, MaterialPageRoute(builder: (_) => ShowPage()));
                 },
                 child: Text(
                   'Login',
