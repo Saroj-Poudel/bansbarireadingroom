@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
             child: Text(
           'Bansbari Reading Room',
           style: TextStyle(
-            fontSize: 20,
+            fontSize: 16,
           ),
         )),
         elevation: 0, // to change box shadow

@@ -5,9 +5,12 @@ import 'package:bansbari_reading_room/showpage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'loginpage.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 
 void main(){
+  WidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp();
   runApp(Home());
 }
 

@@ -1,10 +1,13 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:bansbari_reading_room/models/features.dart';
+import 'package:bansbari_reading_room/registrationpage.dart';
 import 'package:bansbari_reading_room/testimonial.dart';
+import 'package:bansbari_reading_room/view/multilevelsidebar.dart';
 import 'package:bansbari_reading_room/view/sidebar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:multilevel_drawer/multilevel_drawer.dart';
 import 'loginpage.dart';
 
 class ShowPage extends StatelessWidget {
@@ -17,12 +20,110 @@ class ShowPage extends StatelessWidget {
     print(height);
     print(width);
     return Scaffold(
-      drawer: const SideBarScreen(),
+      drawer:MultiLevelDrawer(
+      backgroundColor: Color(0xFFc55a11),
+      //rippleColor: Colors.green,
+      subMenuBackgroundColor: Color(0xFFc65a20),
+      header: Container(
+        // Header for Drawer
+        height: 150,
+        //width: 150,
+        child: Padding(
+          padding: const EdgeInsets.only(top: 22.0),
+          child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Image.asset(
+                    "assets/images/logo.jpg",
+                    width: 100,
+                    height: 80,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text("User Name"),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text("Position")
+                ],
+              )),
+        ),
+      ),
+      children: [
+        // Child Elements for Each Drawer Item
+        MLMenuItem(
+            leading: Icon(Icons.engineering_rounded,
+              color: Colors.black,),
+            trailing: Icon(
+              Icons.chevron_right,
+            ),
+            content: Text(
+              "Admission",
+            ),
+            subMenuItems: [
+              MLSubmenu(onClick: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => Registration(),
+                  ),
+                );
+              }, submenuContent: Text("New Admission")),
+              MLSubmenu(onClick: () {}, submenuContent: Text("Re-Admission")),
+            ],
+            onClick: () {}),
+        MLMenuItem(
+            leading: Icon(
+              Icons.receipt_outlined,
+              color: Colors.black,
+            ),
+            trailing: Icon(
+              Icons.chevron_right,
+            ),
+            content: Text("Report"),
+            onClick: () {},
+            subMenuItems: [
+              MLSubmenu(onClick: () {}, submenuContent: Text("Day Report")),
+              MLSubmenu(onClick: () {}, submenuContent: Text("Weekly Report")),
+              MLSubmenu(onClick: () {}, submenuContent: Text("Monthly Report")),
+              MLSubmenu(onClick: () {}, submenuContent: Text("Quaterly Report")),
+              MLSubmenu(onClick: () {}, submenuContent: Text("Yearly Report")),
+            ]),
+        MLMenuItem(
+          leading: Icon(Icons.notifications),
+          content: Text("Notifications"),
+          onClick: () {},
+        ),
+        MLMenuItem(
+            leading: Icon(Icons.payment),
+            trailing: Icon(Icons.arrow_right),
+            content: Text(
+              "Payments",
+            ),
+            subMenuItems: [
+              MLSubmenu(onClick: () {}, submenuContent: Text("Online Payment")),
+              MLSubmenu(onClick: () {}, submenuContent: Text("Cash Payment")),
+            ],
+            onClick: () {}),
+        MLMenuItem(
+          leading: Icon(Icons.login_outlined),
+          content: Text("Log Out"),
+          onClick: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => LoginDemo(),
+              ),
+            );
+          },
+        ),
+      ],
+    ),
       appBar: AppBar(
         elevation: 0,
           backgroundColor: Colors.deepOrange,
           title: Center(
-            child: Text('Bansbari Reading Room',style: TextStyle(color: Colors.black,fontSize: 30),),
+            child: Text('Bansbari Reading Room',style: TextStyle(color: Colors.black,fontSize: 30.sp),),
 
           )),
       body:
@@ -98,11 +199,13 @@ return Center(
                   return Row(
                     children: [
                       Container(
-                        width:200.w,
+                         width: 180.w,
+                        child: testimonials[index].imageUrl,
                       ),
                       Container(
                         child: Column(
                           children: [
+
                             Container(
                               width:250,
                                 child: AutoSizeText(testimonials[index].voice, textAlign:TextAlign.justify,)),
@@ -130,7 +233,7 @@ return Center(
           Column(
             children: [
               Container(
-                height: 250.h,
+                height: 150.h,
                 width: double.infinity,
                 color: Colors.greenAccent,
                 child: Column(
@@ -163,21 +266,6 @@ return Center(
                   ],
                 ),
               ),
-              Container(
-                child: Column(
-                  children: [
-                    ElevatedButton(onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (_) =>LoginDemo() ));
-                    }, style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      backgroundColor: Colors.deepOrangeAccent,
-                      textStyle: TextStyle(fontSize: 20,color: Colors.green),
-                    ), child: const Text('Log IN'))
-                  ],
-                ),
-              )
             ],
           )
         ],

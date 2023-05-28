@@ -10,9 +10,9 @@ class SideBarScreen extends StatelessWidget {
     {
       "leading": Icon(
         Icons.engineering_rounded,
-        color: Colors.red,
+        color: Colors.black,
       ),
-      "title": "New Admission",
+      "title": "Admission",
       "trailing": Icon(
         Icons.chevron_right,
       ),
@@ -21,7 +21,7 @@ class SideBarScreen extends StatelessWidget {
     {
       "leading": Icon(
         Icons.receipt_outlined,
-        color: Colors.red,
+        color: Colors.black,
       ),
       "title": "View Report",
       "trailing": Icon(
@@ -32,7 +32,7 @@ class SideBarScreen extends StatelessWidget {
     {
       "leading": Icon(
         Icons.login_outlined,
-        color: Colors.red,
+        color: Colors.black,
       ),
       "title": "Log Out",
       "trailing": Icon(
@@ -41,13 +41,14 @@ class SideBarScreen extends StatelessWidget {
       "action_id": 3,
     },
   ];
-
+  //#E8690E
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: SizedBox(
       width: 230.w,
       child: Drawer(
+        backgroundColor: Color(0xFFc55a11),
         child: ListView(
           children: [
             ListTile(

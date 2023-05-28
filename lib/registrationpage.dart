@@ -1,5 +1,6 @@
 import 'package:bansbari_reading_room/loginpage.dart';
 import 'package:bansbari_reading_room/textformatter.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'home_page.dart';
@@ -11,16 +12,29 @@ class Registration extends StatefulWidget {
 }
 
 class _RegistrationState extends State<Registration> {
+  _RegistrationState(){
+    _selectedGender=_genderList[1];
+    _selectedPackage=_packageList[2];
+  }
+  final _packageList=["Daily-200","Weekly-1000","Monthly-3000","Quarterly-8000","Yearly-30000"];
+  String?_selectedPackage="";
+  bool loading= false;
+  final databaseRef = FirebaseDatabase.instance.ref('Student Registration');
+  final _genderList=["Male","Female","Other"];
+  String? _selectedGender= "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Color(0xFFE75F2D),
-        title: Text(
-          "Bansbari Reading Room",
-          style: TextStyle(fontSize: 20, color: Colors.white),
+        title: Center(
+          child: Text(
+            "Bansbari Reading Room",
+            style: TextStyle(fontSize: 20, color: Colors.white),
+          ),
         ),
+        automaticallyImplyLeading: false,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -58,14 +72,20 @@ class _RegistrationState extends State<Registration> {
                 children: [
                   Text('Gender'),
                   SizedBox(width: 20,),
-                  DropdownButton<String>(
-                    items: <String>['Male', 'Female', 'Other'].map((String gender) {
-                      return DropdownMenuItem<String>(
-                        value: gender,
-                        child: Text(gender),
-                      );
-                    }).toList(),
-                    onChanged: (_) {},
+                  DropdownButton(
+                    value: _selectedGender,
+                    items: _genderList.map((e) => DropdownMenuItem(child: Text(e),value: e,)).toList(),
+                    /*_genderList.map(
+                            (e)=> {
+                              DropdownMenuItem(
+                       value: e,
+                        child: Text(e),
+                            )).toList(),*/
+                    onChanged: (gend) {
+                      setState(() {
+                        _selectedGender=gend as String;
+                      });
+                    },
                   ),
                 ],
               ),
@@ -166,15 +186,13 @@ class _RegistrationState extends State<Registration> {
                 children: [
                   Text('Choose Package'),
                   SizedBox(width: 20,),
-                  DropdownButton<String>(
-                    items: <String>['Daily-RS200', 'Weakly-Rs1000', 'Monthly-RS3000', 'Quarterly-Rs8000','yearly-RS30000'].map((String option) {
-                      return DropdownMenuItem<String>(
-                        value: option,
-                        child: Text(option),
-                      );
-                    }).toList(),
-                    onChanged: (option) {},
-                  ),
+                  DropdownButton(value: _selectedPackage,items:_packageList.map((e) => DropdownMenuItem(child: Text(e),value: e,)).toList(),
+                  onChanged: (pack){
+                    setState(() {
+                      _selectedPackage=pack as String;
+                    });
+                  },
+                  )
                 ],
               ),
 

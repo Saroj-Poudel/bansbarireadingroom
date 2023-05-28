@@ -2,7 +2,6 @@ import 'package:bansbari_reading_room/loginpage.dart';
 import 'package:bansbari_reading_room/textformatter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'home_page.dart';
 import 'package:dob_input_field/dob_input_field.dart';
 
 class Registration extends StatefulWidget {
